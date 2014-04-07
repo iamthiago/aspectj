@@ -9,4 +9,5 @@ public interface UserService {
 	UserDto addUserAfter(UserDto userDto);
 	UserDto addUserAfterReturning(UserDto userDto);
 	UserDto addUserAround(UserDto userDto);
+	void addUserBeforeVoid(UserDto userDto);
 }

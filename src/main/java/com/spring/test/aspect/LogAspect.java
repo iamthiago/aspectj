@@ -11,13 +11,17 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.spring.test.dto.UserDto;
+import com.spring.test.service.TestService;
 
 @Aspect
 public class LogAspect {
 	
 	private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
+	
+	@Autowired TestService testService;
 	
 	@Before("execution(* com.spring.test.service.UserService.addUserBefore(..)) && args(userDto)")
 	public void logBefore(JoinPoint joinPoint, UserDto userDto) throws Throwable {
@@ -44,6 +48,8 @@ public class LogAspect {
 			returning="userDto")
 	public void logAfterReturning(JoinPoint joinPoint, UserDto userDto) {
 		log.info("logAfterReturning() is running!");
+		log.info("method: " + joinPoint.getSignature().getName());
+		
 		log.info("username: " + userDto.getUsername());
 		log.info("email: " + userDto.getEmail());
 	}
@@ -62,5 +68,16 @@ public class LogAspect {
 		joinPoint.proceed();
 		
 		log.info("around after is running");
+	}
+	
+	@Before("execution(* com.spring.test.service.UserService.addUserBeforeVoid(..)) && args(userDto)")
+	public void logBeforeVoid(JoinPoint joinPoint, UserDto userDto) throws Throwable {
+		log.info("logBeforeVoid() is running!");
+		log.info("method: " + joinPoint.getSignature().getName());
+		
+		log.info("username: " + userDto.getUsername());
+		log.info("email: " + userDto.getEmail());
+		
+		testService.testService();
 	}
 }

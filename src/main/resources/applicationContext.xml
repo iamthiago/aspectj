@@ -9,6 +9,7 @@
 	<aop:aspectj-autoproxy />
 
 	<bean id="userService" class="com.spring.test.service.impl.UserServiceImpl" />
+	<bean id="testService" class="com.spring.test.service.impl.TestServiceImpl" />
 	<bean id="logAspect" class="com.spring.test.aspect.LogAspect" />
 
 </beans>

@@ -34,4 +34,9 @@ public class AspectTest {
 	public void aspectAroundTest() {
 		userService.addUserAround(new UserDto(new Long(1), "thiago", "thiago@gmail.com"));
 	}
+	
+	@Test
+	public void aspectBeforeVoidTest() {
+		userService.addUserBeforeVoid(new UserDto(new Long(1), "thiago", "thiago@gmail.com"));
+	}
 }
