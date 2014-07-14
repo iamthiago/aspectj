@@ -1,16 +1,17 @@
-package com.spring.test;
+package com.aop.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.spring.test.dto.UserDto;
-import com.spring.test.service.UserService;
+import com.aop.Application;
+import com.aop.dto.UserDto;
+import com.aop.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:applicationContext.xml"})
+@SpringApplicationConfiguration(classes = Application.class)
 public class AspectTest {
 	
 	@Autowired private UserService userService;

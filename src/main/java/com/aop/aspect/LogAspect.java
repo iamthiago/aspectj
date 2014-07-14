@@ -1,4 +1,4 @@
-package com.spring.test.aspect;
+package com.aop.aspect;
 
 import java.util.Arrays;
 
@@ -12,10 +12,12 @@ import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import com.spring.test.dto.UserDto;
-import com.spring.test.service.TestService;
+import com.aop.dto.UserDto;
+import com.aop.service.TestService;
 
+@Component
 @Aspect
 public class LogAspect {
 	

@@ -1,4 +1,4 @@
-aspectj
+Spring AOP
 =======
 
-Spring AOP + AspectJ
+Spring AOP

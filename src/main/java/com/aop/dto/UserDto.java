@@ -1,4 +1,4 @@
-package com.spring.test.dto;
+package com.aop.dto;
 
 import java.io.Serializable;
 

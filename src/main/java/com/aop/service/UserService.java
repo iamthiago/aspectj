@@ -1,6 +1,6 @@
-package com.spring.test.service;
+package com.aop.service;
 
-import com.spring.test.dto.UserDto;
+import com.aop.dto.UserDto;
 
 
 public interface UserService {
