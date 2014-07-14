@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,19 @@ public class LogAspect {
 	private static final Logger log = LoggerFactory.getLogger(LogAspect.class);
 	
 	@Autowired TestService testService;
+	
+	@Pointcut("execution(* com.aop.service.UserService.addUserBefore(..)) && args(userDto)")
+	public void getPointcutName(UserDto userDto){}
+	
+	@Before("getPointcutName(userDto)")
+	public void logBeforePointCut(JoinPoint joinPoint, UserDto userDto) throws Throwable {
+		log.info("logBeforePointCut() is running!");
+		log.info("method: " + joinPoint.getSignature().getName());
+		log.info("params: " + Arrays.toString(joinPoint.getArgs()));
+		
+		log.info("username: " + userDto.getUsername());
+		log.info("email: " + userDto.getEmail());
+	}
 	
 	@Before("execution(* com.aop.service.UserService.addUserBefore(..)) && args(userDto)")
 	public void logBefore(JoinPoint joinPoint, UserDto userDto) throws Throwable {
