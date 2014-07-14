@@ -2,6 +2,10 @@ package com.aop.dto;
 
 import java.io.Serializable;
 
+/**
+ * @author thiago
+ *
+ */
 public class UserDto implements Serializable {
 
 	/**

@@ -10,6 +10,10 @@ import com.aop.Application;
 import com.aop.dto.UserDto;
 import com.aop.service.UserService;
 
+/**
+ * @author thiago
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 public class AspectTest {

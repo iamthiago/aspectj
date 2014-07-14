@@ -3,6 +3,10 @@ package com.aop.service;
 import com.aop.dto.UserDto;
 
 
+/**
+ * @author thiago
+ *
+ */
 public interface UserService {
 	
 	UserDto addUserBefore(UserDto userDto);

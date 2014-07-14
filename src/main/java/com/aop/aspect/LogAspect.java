@@ -17,6 +17,10 @@ import org.springframework.stereotype.Component;
 import com.aop.dto.UserDto;
 import com.aop.service.TestService;
 
+/**
+ * @author thiago
+ *
+ */
 @Component
 @Aspect
 public class LogAspect {
@@ -25,7 +29,7 @@ public class LogAspect {
 	
 	@Autowired TestService testService;
 	
-	@Before("execution(* com.spring.test.service.UserService.addUserBefore(..)) && args(userDto)")
+	@Before("execution(* com.aop.service.UserService.addUserBefore(..)) && args(userDto)")
 	public void logBefore(JoinPoint joinPoint, UserDto userDto) throws Throwable {
 		log.info("logBefore() is running!");
 		log.info("method: " + joinPoint.getSignature().getName());
@@ -35,7 +39,7 @@ public class LogAspect {
 		log.info("email: " + userDto.getEmail());
 	}
 	
-	@After("execution(* com.spring.test.service.UserService.addUserAfter(..)) && args(userDto)")
+	@After("execution(* com.aop.service.UserService.addUserAfter(..)) && args(userDto)")
 	public void logAfter(JoinPoint joinPoint, UserDto userDto) throws Throwable {
 		log.info("logAfter() is running!");
 		log.info("method: " + joinPoint.getSignature().getName());
@@ -46,7 +50,7 @@ public class LogAspect {
 	}
 	
 	@AfterReturning(
-			pointcut="execution(* com.spring.test.service.UserService.addUserAfterReturning(..))",
+			pointcut="execution(* com.aop.service.UserService.addUserAfterReturning(..))",
 			returning="userDto")
 	public void logAfterReturning(JoinPoint joinPoint, UserDto userDto) {
 		log.info("logAfterReturning() is running!");
@@ -56,7 +60,7 @@ public class LogAspect {
 		log.info("email: " + userDto.getEmail());
 	}
 	
-	@Around("execution(* com.spring.test.service.UserService.addUserAround(..)) && args(userDto)")
+	@Around("execution(* com.aop.service.UserService.addUserAround(..)) && args(userDto)")
 	public void logAround(ProceedingJoinPoint joinPoint, UserDto userDto) throws Throwable {
 		log.info("logAround() is running!");
 		log.info("method: " + joinPoint.getSignature().getName());
@@ -72,7 +76,7 @@ public class LogAspect {
 		log.info("around after is running");
 	}
 	
-	@Before("execution(* com.spring.test.service.UserService.addUserBeforeVoid(..)) && args(userDto)")
+	@Before("execution(* com.aop.service.UserService.addUserBeforeVoid(..)) && args(userDto)")
 	public void logBeforeVoid(JoinPoint joinPoint, UserDto userDto) throws Throwable {
 		log.info("logBeforeVoid() is running!");
 		log.info("method: " + joinPoint.getSignature().getName());

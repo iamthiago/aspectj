@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 import com.aop.dto.UserDto;
 import com.aop.service.UserService;
 
+/**
+ * @author thiago
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

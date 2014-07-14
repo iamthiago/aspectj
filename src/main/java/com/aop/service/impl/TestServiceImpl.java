@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.aop.service.impl;
 
 import org.slf4j.Logger;
@@ -10,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.aop.service.TestService;
 
 /**
- * @author Thiago
+ * @author thiago
  *
  */
 @Service
